@@ -8,12 +8,18 @@ module.exports = {
         else {
             try {
 
-           message.channel.sayMessage(args[0].toString());
-                let result = args[0].replace(/;/ig, ' ');
               
-                let result2 = args[0].replace(/|/ig, '\n');
+                let justmsg = message.substring(0,11).toString();
+
+
+                let result = justmsg.replace('|', ' ');
+              
+                let result2 = justmsg.replace('|', '\n');
               
                     
+                message.channel.send(result2.toString())
+
+
                 const embed = {
                     "content": "" + message.guild.defaultRole.toString(),
                     "title": "Xedved update!",
@@ -48,12 +54,7 @@ module.exports = {
                     ]
                   };
            
-                  //channel.send({ embed });
-                  const sayMessage = args[0].join(" ");
-                  // Then we delete the command message (sneaky, right?). The catch just ignores the error with a cute smiley thing.
-                  message.delete().catch(O_o=>{}); 
-                  // And we get the bot to say the thing: 
-                  message.channel.send(sayMessage);
+               
                  // message.delete(0);
 
             }
@@ -63,5 +64,5 @@ module.exports = {
         }
     },
     aliases: ["updateText"],
-    description: 'a test'
+    description: 'Bans a guild member by their ID'
 }

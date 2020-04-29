@@ -57,6 +57,6 @@ module.exports = {
             }
         }
     },
-    aliases: ["Update"],
+    aliases: ["update"],
     description: 'Bans a guild member by their ID'
 }

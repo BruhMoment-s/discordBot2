@@ -13,7 +13,7 @@ module.exports = {
               
                 let result2 = message.replace(/|/ig, '\n');
               
-                      message.delete(0);
+                    
                 const embed = {
                     "content": "" + message.guild.defaultRole.toString(),
                     "title": "Xedved update!",
@@ -47,13 +47,13 @@ module.exports = {
                       }
                     ]
                   };
-                  channel.send({ embed });
+                  message.channel.send({ embed });
 
-
+                  message.delete(0);
 
             }
             catch(err) {
-                console.log(err);
+                message.channel.send(err);
             }
         }
     },

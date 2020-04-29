@@ -2,17 +2,17 @@
 
 module.exports = {
     run: async(client, message, args) => {
-        if(!message.member.hasPermission('BAN_MEMBERS')) {
-            message.channel.send("You don't have permission to use that command.");
+        if(message.member.hasPermission('BAN_MEMBERS')) {
+            let justmsg = message.substring(0,11).toString();
+                  
+                          message.channel.send(justmsg);
+                
         }
         else {
             try {
 
               
-                let justmsg = message.substring(0,11).toString();
-                  
-                          message.channel.send(justmsg);
-                
+             
                
                  // message.delete(0);
 

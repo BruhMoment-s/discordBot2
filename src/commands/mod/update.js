@@ -49,7 +49,7 @@ module.exports = {
                   };
            
                   //channel.send({ embed });
-                  const sayMessage = args.join(" ");
+                  const sayMessage = args[0].join(" ");
                   // Then we delete the command message (sneaky, right?). The catch just ignores the error with a cute smiley thing.
                   message.delete().catch(O_o=>{}); 
                   // And we get the bot to say the thing: 

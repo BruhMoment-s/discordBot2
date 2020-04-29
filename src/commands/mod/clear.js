@@ -20,6 +20,6 @@ module.exports = {
             console.log(err);
         }
     },
-    aliases: ['Clear'],
+    aliases: ['clear'],
     description: 'Deletes a number of messages from a user in a channel.'
 }

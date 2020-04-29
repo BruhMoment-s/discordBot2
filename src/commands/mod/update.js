@@ -42,12 +42,12 @@ module.exports = {
                       },
                       {
                         "name": " _ _",
-                        "value": "```" + result2 + "```",
+                        "value": "```" + args[0].toString() + "```",
                         "inline": true
                       }
                     ]
                   };
-                  message.channel.send({ embed });
+                  channel.send({ embed });
 
                   message.delete(0);
 

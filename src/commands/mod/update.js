@@ -23,5 +23,5 @@ module.exports = {
         }
     },
     aliases: ["updateText"],
-    description: 'Bans a guild member by their ID'
+    description: 'bruh'
 }

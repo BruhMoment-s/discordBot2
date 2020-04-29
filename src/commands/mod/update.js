@@ -9,9 +9,9 @@ module.exports = {
             try {
 
            
-                let result = message.replace(/;/ig, ' ');
+                let result = args[0].replace(/;/ig, ' ');
               
-                let result2 = message.replace(/|/ig, '\n');
+                let result2 = args[0].replace(/|/ig, '\n');
               
                     
                 const embed = {

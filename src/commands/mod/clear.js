@@ -1,24 +1,14 @@
 module.exports = {
     run: async(client, msg, args) => {
         let [ userId, limit ] = args.split(/\s+/);
-        if(!userId && !limit) {
-            let deletedMessages = await msg.channel.bulkDelete();
-            msg.channel.send(`${deletedMessages.size} messages were deleted.`);
-        }
-        if(!userId || !limit) return msg.channel.send('Please provide the correct arguments.');
-        let r = new RegExp(/^\d+$/);
-        if(!r.test(userId)) return msg.channel.send('Please provide a valid user id.');
-        if(isNaN(limit)) return msg.channel.send('Please provide a numeric value for limit');
-        if(limit > 100) return msg.channel.send('Limit must be less than or equal to 100.');
-        try {
-            let fetchedMessages = await msg.channel.messages.fetch({ limit });
-            let filteredMessages = fetchedMessages.filter(msg => msg.author.id === userId);
-            let deletedMessages = await msg.channel.bulkDelete(filteredMessages);
-            msg.channel.send(`${deletedMessages.size} messages were deleted.`);
-        }
-        catch(err) {
-            console.log(err);
-        }
+        if (isNAN(args[0])) return message.channel.send('**Please select a valid amount of messages to purge');
+
+        if (args[0] > 100 )  return message.channel.send('**Please select a value bellow 100**');
+        
+        message.channel.buldDelete(args[0])
+        .then( messagess => message.channel.send(`**Successfully deleted \`${messages.size}/${args[0]}\` messages**`).then( msg => msg.delete({timeout: 1000})))
+        .catch( error => message.channel.send(`**Error:** ${error.message}`));
+
     },
     aliases: ['clear'],
     description: 'Deletes a number of messages from a user in a channel.'

@@ -8,7 +8,7 @@ module.exports = {
         else {
             try {
 
-           
+           message.channel.sayMessage(args[0].toString());
                 let result = args[0].replace(/;/ig, ' ');
               
                 let result2 = args[0].replace(/|/ig, '\n');

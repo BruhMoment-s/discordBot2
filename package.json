@@ -1,12 +1,21 @@
 {
-  "name": "Test",
-  "description": "Test",
-  "version": "0.0.0",
+
+  "name": "v12-discordjs-bot",
+  "version": "1.0.0",
+  "description": "",
   "main": "bot.js",
   "scripts": {
-    "start": "node bot.js"
+    "start" : "node ./src/bot.js",
+    "dev" : "nodemon ./src/bot.js"
   },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "dependencies": {
-    "discord.js": "11.1.0",
-    "request": "2.81.0"
+    "ansi-colors": "^4.1.1",
+    "discord.js": "^12.0.2",
+    "dotenv": "^8.2.0",
+    "mongoose": "^5.9.5",
+    "table": "^5.4.6"
   }
+}

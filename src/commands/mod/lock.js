@@ -6,7 +6,7 @@ const IGNORED = new Set([
 module.exports = {
   run: async(client, message, args) => {
     if(args.split(' ').length !== 2) 
-      return message.channel.send('?lock <ROLE_ID> TRUE | FALSE | NULL');
+      return message.channel.send('_lock <ROLE_ID> TRUE | FALSE | NULL');
     let [ roleId, flag ] = args.split(' ');
     if(!isNaN(roleId) && validateFlag(flag.toLowerCase())) {
       if(message.guild.roles.cache.has(roleId)) {

@@ -22,6 +22,6 @@ module.exports = {
             }
         }
     },
-    aliases: ["updateText"],
+    aliases: ["updateTextasdasdasd"],
     description: 'bruh'
 }

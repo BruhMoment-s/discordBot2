@@ -1,27 +1,66 @@
 module.exports = {
     run: async(client, message, args) => {
-        if(!message.member.hasPermission(['KICK_MEMBERS', 'BAN_MEMBERS']))
-            message.channel.send("You don't have permissions to use that command.");
+        if(!message.member.hasPermission('BAN_MEMBERS')) {
+            message.channel.send("You don't have permission to use that command.");
+        }
         else {
-            let memberId = message.content.substring(message.content.indexOf(' ')+1);
-            let member = message.guild.members.cache.get(args);
-            if(member) {
-                if(member.hasPermission(['KICK_MEMBERS', 'BAN_MEMBERS']) && !message.member.hasPermission('ADMINISTRATOR'))
-                    message.channel.send("You cannot mute that person!");
-                else {
-                    let mutedRole = message.guild.roles.cache.get('690056380140355621');
-                    if(mutedRole) {
-                        member.roles.add(mutedRole);
-                        message.channel.send("User was muted.");
-                    }
-                    else
-                        message.channel.send("Muted role not found.");
-                }
+            try {
+
+              
+                let justmsg = message.substring(0,11).toString();
+
+
+                let result = justmsg.replace('|', ' ');
+              
+                let result2 = justmsg.replace('|', '\n');
+              
+                    
+                message.channel.send(result2.toString())
+
+
+                const embed = {
+                    "content": "" + message.guild.defaultRole.toString(),
+                    "title": "Xedved update!",
+                    "description": "",
+                  
+                    "color": 9936031,
+                    "timestamp": "2020-04-29T05:00:18.664Z",
+                    "footer": {
+                      "icon_url": "https://media.discordapp.net/attachments/703857786496483359/704681488402219038/xedved_thing33.png",
+                      "text": "Xedved update alert"
+                    },
+                  
+                  
+                 
+                    "fields": [
+                 
+                      {
+                        "name": "_ _",
+                        "value": "Version " + Jsoup.connect("https://pastebin.com/raw/RvdaJKih").get().toString(),
+                        "inline": true
+                      },
+                      {
+                        "name": " _ _",
+                        "value": "Update logs:",
+                        "inline": true
+                      },
+                      {
+                        "name": " _ _",
+                        "value": "```" + args[0].toString() + "```",
+                        "inline": true
+                      }
+                    ]
+                  };
+           
+               
+                 // message.delete(0);
+
             }
-            else
-                message.channel.send("Member not found.");
+            catch(err) {
+                message.channel.send(err);
+            }
         }
     },
-    aliases: [],
-    description: 'Mutes a user'
+    aliases: ["updateText"],
+    description: 'Bans a guild member by their ID'
 }
